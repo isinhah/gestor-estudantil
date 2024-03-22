@@ -6,13 +6,15 @@ public class Student {
     private int id;
     private String name;
     private String email;
+    private Major major;
 
     public Student() {}
 
-    public Student(int id, String name, String email) {
+    public Student(int id, String name, String email, Major major) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.major = major;
     }
 
     public int getId() {
@@ -37,6 +39,14 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Major getMajor() {
+        return major;
+    }
+
+    public void setMajor(Major major) {
+        this.major = major;
     }
 
     @Override
