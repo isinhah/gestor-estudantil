@@ -5,7 +5,6 @@ import model.dao.StudentDao;
 import model.entities.Major;
 import model.entities.Student;
 
-import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +21,7 @@ public class StudentDaoJDBC implements StudentDao {
     @Override
     public void insert(Student obj) {
         PreparedStatement st;
+        ResultSet rs;
         try {
             st = conn.prepareStatement("INSERT INTO students "
                     + "(name, email, major_id) "
@@ -35,7 +35,7 @@ public class StudentDaoJDBC implements StudentDao {
             int rowsAffected = st.executeUpdate();
 
             if (rowsAffected > 0) {
-                ResultSet rs = st.getGeneratedKeys();
+                rs = st.getGeneratedKeys();
                 if(rs.next()) {
                     int id = rs.getInt(1);
                     obj.setId(id);
@@ -57,6 +57,7 @@ public class StudentDaoJDBC implements StudentDao {
             st.setString(1, obj.getName());
             st.setString(2, obj.getEmail());
             st.setInt(3, obj.getMajor().getId());
+            st.setInt(4, obj.getId());
 
             st.executeUpdate();
         } catch (SQLException e) {
@@ -81,24 +82,24 @@ public class StudentDaoJDBC implements StudentDao {
         PreparedStatement st;
         ResultSet rs;
         try {
-            st = conn.prepareStatement(
-                    "SELECT students.*,major.name as majorName "
-                    + "FROM students INNER JOIN major "
-                    + "ON students.major_id = major.id "
-                    + "WHERE students.id = ?");
-
+            st = conn.prepareStatement("SELECT students.*,major.name as majorName " +
+                    "FROM students INNER JOIN major " +
+                    "ON students.major_id = major.id " +
+                    "WHERE students.id = ?");
             st.setInt(1, id);
             rs = st.executeQuery();
+
             if (rs.next()) {
                 Major major = instantiateMajor(rs);
                 Student obj = instantiateStudent(rs, major);
                 return obj;
             }
-            return null;
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
-        }
+            }
+        return null;
     }
+
 
     private Student instantiateStudent(ResultSet rs, Major major) throws SQLException {
         Student obj = new Student();
@@ -124,7 +125,8 @@ public class StudentDaoJDBC implements StudentDao {
             st = conn.prepareStatement(
                     "SELECT students.*,major.name as majorName "
                     + "FROM students INNER JOIN major "
-                    + "ON students.major_id = major.id ");
+                    + "ON students.major_id = major.id "
+                    + "ORDER BY Name");
             rs = st.executeQuery();
 
             List<Student> list = new ArrayList<>();
@@ -168,7 +170,7 @@ public class StudentDaoJDBC implements StudentDao {
 
                 if (major == null) {
                     major = instantiateMajor(rs);
-                    map.put(rs.getInt("DepartmentId"), major);
+                    map.put(rs.getInt("major_id"), major);
                 }
 
                 Student obj = instantiateStudent(rs, major);

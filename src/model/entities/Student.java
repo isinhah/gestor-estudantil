@@ -3,19 +3,20 @@ package model.entities;
 import java.util.Objects;
 
 public class Student {
-    private int id;
+    private Integer id;
     private String name;
     private String email;
     private Major major;
 
     public Student() {}
 
-    public Student(int id, String name, String email, Major major) {
+    public Student(Integer id, String name, String email, Major major) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.major = major;
     }
+
 
     public int getId() {
         return id;
@@ -64,10 +65,9 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return "Id: " + id +
+                ", Name: " + name  +
+                ", Email: " + email +
+                ", " + major;
     }
 }

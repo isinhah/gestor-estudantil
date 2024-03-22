@@ -14,9 +14,13 @@ public class DB {
 
     public DB() {}
 
-    public static Connection getConnection() throws SQLException {
-        Connection connection;
-        connection = DriverManager.getConnection(url, user, password);
-        return connection;
+    public static Connection getConnection() {
+        try {
+            Connection connection;
+            connection = DriverManager.getConnection(url, user, password);
+            return connection;
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        }
     }
 }

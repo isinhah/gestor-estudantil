@@ -3,12 +3,12 @@ package model.entities;
 import java.util.Objects;
 
 public class Major {
-    private int id;
+    private Integer id;
     private String name;
 
     public Major() {}
 
-    public Major(int id, String name) {
+    public Major(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -44,9 +44,6 @@ public class Major {
 
     @Override
     public String toString() {
-        return "Major{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Major: " + name;
     }
 }

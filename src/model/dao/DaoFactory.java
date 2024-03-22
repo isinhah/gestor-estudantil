@@ -7,11 +7,11 @@ import model.dao.impl.StudentDaoJDBC;
 import java.sql.SQLException;
 
 public class DaoFactory {
-    public static StudentDao createStudentDao() throws SQLException {
+    public static StudentDao createStudentDao() {
         return new StudentDaoJDBC(DB.getConnection());
     }
 
-    public static MajorDao createMajorDao() throws SQLException {
+    public static MajorDao createMajorDao() {
         return new MajorDaoJDBC(DB.getConnection());
     }
 }

@@ -9,7 +9,7 @@ public interface StudentDao {
     void insert(Student obj);
     void update(Student obj);
     void deleteById(Integer id);
-    Student findById(Integer id); //se o id não existir: retorna null
+    Student findById(Integer id);
     List<Student> findAll();
     List<Student> findByMajor(Major major);
 }
