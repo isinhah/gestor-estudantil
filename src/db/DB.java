@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DB {
-    private static String url = "jdbc:mysql://localhost:3306/estudantesjdbc";
+    private static String url = "jdbc:mysql://localhost:3306/faculdadejdbc";
     private static String user = "root";
     private static String password = "admin";
 

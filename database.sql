@@ -1,13 +1,13 @@
-CREATE database estudantesjdbc;
+CREATE database faculdadejdbc;
 
-use estudantesjdbc;
+use faculdadejdbc;
 
 CREATE TABLE Major (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Students (
+CREATE TABLE Student (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100),
@@ -20,11 +20,21 @@ INSERT INTO Major (name) VALUES
   ('Psychology'),
   ('Mechanical Engineering'),
   ('Medicine'),
-  ('Biology');
+  ('Biology'),
+  ('Economics'),
+  ('English Literature'),
+  ('History'),
+  ('Chemistry'),
+  ('Physics');
 
-INSERT INTO Students (name, email,  major_id) VALUES
-  ('Bob Brown','bob@gmail.com',1),
-  ('Maria Green','maria@gmail.com',2),
-  ('Alex Grey','alex@gmail.com',3),
-  ('Martha Red','martha@gmail.com',4),
-  ('Donald Blue','donald@gmail.com',5);
+
+INSERT INTO Student (name, email, major_id) VALUES
+  ('João','joao@gmail.com',1),
+  ('Ana','ana@gmail.com',2),
+  ('Pedro','pedro@gmail.com',3),
+  ('Mariana','mariana@gmail.com',4),
+  ('Lucas','lucas@gmail.com',5),
+  ('Juliana','juliana@gmail.com',1),
+  ('Isabel','isabel@gmail.com',1),
+  ('Rafaela','rafaela@gmail.com',4),
+  ('Gustavo','gustavo@gmail.com',5);

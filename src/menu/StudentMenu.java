@@ -80,7 +80,7 @@ public class StudentMenu {
                     Major idFromMajor = majorDao.findById(idMajor);
 
                     if (idFromMajor != null) {
-                        System.out.println("Curso: " + idFromMajor.getName());
+                        System.out.println("\nCurso: " + idFromMajor.getName());
                         List<Student> studentList = studentDao.findByMajor(idFromMajor);
                         for (Student obj : studentList) {
                             System.out.println(obj);

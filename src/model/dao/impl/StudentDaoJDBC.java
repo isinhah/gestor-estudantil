@@ -23,7 +23,7 @@ public class StudentDaoJDBC implements StudentDao {
         PreparedStatement st;
         ResultSet rs;
         try {
-            st = conn.prepareStatement("INSERT INTO students "
+            st = conn.prepareStatement("INSERT INTO student "
                     + "(name, email, major_id) "
                     + "VALUES "
                     + "(?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
@@ -50,7 +50,7 @@ public class StudentDaoJDBC implements StudentDao {
     public void update(Student obj) {
         PreparedStatement st;
         try {
-            st = conn.prepareStatement("UPDATE students "
+            st = conn.prepareStatement("UPDATE student "
                     + "SET name = ?, email = ?, major_id = ? "
                     + "WHERE id = ?");
 
@@ -69,7 +69,7 @@ public class StudentDaoJDBC implements StudentDao {
     public void deleteById(Integer id) {
         PreparedStatement st;
         try {
-            st = conn.prepareStatement("DELETE FROM students WHERE id = ?");
+            st = conn.prepareStatement("DELETE FROM student WHERE id = ?");
             st.setInt(1, id);
 
             st.executeUpdate();
@@ -83,10 +83,10 @@ public class StudentDaoJDBC implements StudentDao {
         PreparedStatement st;
         ResultSet rs;
         try {
-            st = conn.prepareStatement("SELECT students.*,major.name as majorName " +
-                    "FROM students INNER JOIN major " +
-                    "ON students.major_id = major.id " +
-                    "WHERE students.id = ?");
+            st = conn.prepareStatement("SELECT student.*,major.name as majorName " +
+                    "FROM student INNER JOIN major " +
+                    "ON student.major_id = major.id " +
+                    "WHERE student.id = ?");
             st.setInt(1, id);
             rs = st.executeQuery();
 
@@ -124,9 +124,9 @@ public class StudentDaoJDBC implements StudentDao {
         ResultSet rs;
         try {
             st = conn.prepareStatement(
-                    "SELECT students.*,major.name as majorName "
-                    + "FROM students INNER JOIN major "
-                    + "ON students.major_id = major.id "
+                    "SELECT student.*,major.name as majorName "
+                    + "FROM student INNER JOIN major "
+                    + "ON student.major_id = major.id "
                     + "ORDER BY Name");
             rs = st.executeQuery();
 
@@ -154,9 +154,9 @@ public class StudentDaoJDBC implements StudentDao {
         PreparedStatement st;
         ResultSet rs;
         try {
-            st = conn.prepareStatement("SELECT students.*,major.name as majorName "
-                    + "FROM students INNER JOIN major "
-                    + "ON students.major_id = major.id "
+            st = conn.prepareStatement("SELECT student.*,major.name as majorName "
+                    + "FROM student INNER JOIN major "
+                    + "ON student.major_id = major.id "
                     + "WHERE major_id = ? "
                     + "ORDER BY name");
             st.setInt(1, major.getId());
