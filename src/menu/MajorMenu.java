@@ -29,7 +29,7 @@ public class MajorMenu {
                     String name = scanner.nextLine();
                     Major newMajor = new Major(null, name);
                     majorDao.insert(newMajor);
-                    System.out.println("Adicionado! Id do curso: = " + newMajor.getId());
+                    System.out.println("Adicionado! Id do curso: " + newMajor.getId());
                     break;
                 case 2:
                     System.out.println("\n---- ATUALIZAR DADOS DO CURSO ----");

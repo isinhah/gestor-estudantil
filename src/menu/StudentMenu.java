@@ -36,7 +36,7 @@ public class StudentMenu {
                     int majorId = scanner.nextInt();
                     Student newStudent = new Student(null, name, email, new Major(majorId, null));
                     studentDao.insert(newStudent);
-                    System.out.println("Adicionado! Id do estudante: = " + newStudent.getId());
+                    System.out.println("Adicionado! Id do estudante: " + newStudent.getId());
                     break;
                 case 2:
                     System.out.println("\n---- ATUALIZAR DADOS DO ESTUDANTE ----");
