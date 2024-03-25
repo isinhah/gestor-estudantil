@@ -19,9 +19,7 @@ public class MajorDaoJDBC implements MajorDao {
     public void insert(Major obj) {
         PreparedStatement st;
         try {
-            st = conn.prepareStatement("INSERT INTO major " +
-                    "(name) + " +
-                    "(?)", Statement.RETURN_GENERATED_KEYS);
+            st = conn.prepareStatement("INSERT INTO major (name) VALUES (?)", Statement.RETURN_GENERATED_KEYS);
 
             st.setString(1, obj.getName());
 
@@ -42,9 +40,7 @@ public class MajorDaoJDBC implements MajorDao {
     public void update(Major obj) {
         PreparedStatement st;
         try {
-            st = conn.prepareStatement("UPDATE major " +
-                    "SET name = ? + " +
-                    "WHERE id = ?");
+            st = conn.prepareStatement("UPDATE major " + "SET name = ? " + "WHERE id = ?");
             st.setString(1, obj.getName());
             st.setInt(2, obj.getId());
             st.executeUpdate();
@@ -57,8 +53,7 @@ public class MajorDaoJDBC implements MajorDao {
     public void deleteById(Integer id) {
         PreparedStatement st;
         try {
-            st = conn.prepareStatement(
-                    "DELETE FROM major WHERE id = ?");
+            st = conn.prepareStatement("DELETE FROM major WHERE id = ?");
 
             st.setInt(1, id);
 

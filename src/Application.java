@@ -1,12 +1,8 @@
+import menu.MajorMenu;
 import menu.Menu;
-import model.dao.DaoFactory;
-import model.dao.MajorDao;
-import model.dao.StudentDao;
-import model.entities.Major;
-import model.entities.Student;
+import menu.StudentMenu;
 
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -22,10 +18,10 @@ public class Application {
 
             switch (opcao) {
                 case 1:
-                    Menu.gerenciarEstudantes(sc);
+                    StudentMenu.studentManagement(sc);
                     break;
                 case 2:
-                    Menu.gerenciarCursos(sc);
+                    MajorMenu.majorManagement(sc);
                     break;
                 case 3:
                     System.out.println("Encerrando o programa...");

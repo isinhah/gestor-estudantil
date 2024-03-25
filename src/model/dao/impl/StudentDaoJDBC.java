@@ -71,6 +71,7 @@ public class StudentDaoJDBC implements StudentDao {
         try {
             st = conn.prepareStatement("DELETE FROM students WHERE id = ?");
             st.setInt(1, id);
+
             st.executeUpdate();
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
