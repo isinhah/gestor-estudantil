@@ -9,7 +9,7 @@ O Sistema de Gerenciamento de Estudantes é um projeto desenvolvido para adminis
 # Funcionalidades
 
 - As operações de criação, leitura, atualização e deleção de estudantes e cursos são tratadas de forma independente.
-- O sistema estabele uma conexão entre os estudantes e os cursos da faculdade, em que cada aluno está associado a um curso específico.
+- O sistema estabelece uma conexão entre os estudantes e os cursos da faculdade, em que cada aluno está associado a um curso específico.
 
 # Demonstração
 https://github.com/isinhah/gestor-estudantil/assets/100586957/319c584a-69a3-410f-8808-105b0af7bb7d
