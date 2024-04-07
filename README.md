@@ -24,7 +24,7 @@ https://github.com/isinhah/gestor-estudantil/assets/100586957/319c584a-69a3-410f
 - MySQL
 
 # Técnicas
-- Arquitetura DAO
+- Padrão DAO (Data Access Object)
 
 # Modelo Conceitual
 ![diagrama](/assets/uml.png)
